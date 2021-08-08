@@ -24,10 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('dpi', 13)->nullable();
             $table->string('profession')->nullable();
             $table->string('photo')->nullable();
-            $table->integer('yearsWorking');
+            $table->integer('yearsWorking')->nullable();
             $table->float('salary',9,2)->nullable();
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->foreignId('role_id');
             $table->timestamps();
         });

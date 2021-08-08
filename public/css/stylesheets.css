@@ -1,14 +1,17 @@
+/* Formulario registrar y login */
 .bg-fade,
-.login-fade {
+.login-fade,
+.home-page {
   width: 100%;
   height: 100vh;
   font-family: sans-serif;
   background: linear-gradient(to right, #004c5f, #ad0101);
 }
+
 .text {
   background: none;
   display: block;
-  margin: 20px auto;
+  margin: 10px auto;
   text-align: center;
   border: 2px solid #3498db;
   padding: 10px 10px;
@@ -17,15 +20,17 @@
   color: #707a83;
   border-radius: 24px;
   transition: 0.5s;
-}.text:focus {
-  width: 100%;
+}
+.text:focus {
+  width: 80%;
   border-color: #4caf50;
 }
 
 .file-select {
   position: relative;
   display: inline-block;
-}.file-select::before {
+}
+.file-select::before {
   outline: none;
   background: none;
   border: 2px solid #3498db;
@@ -39,12 +44,14 @@
   right: 0;
   top: 0;
   bottom: 0;
-}.file-select input[type="file"] {
+}
+.file-select input[type="file"] {
   opacity: 0;
   width: 190px;
   padding: 10px 10px;
   display: inline-block;
-}#src-file1::before {
+}
+#src-file1::before {
   content: "Seleccionar Foto";
 }
 
@@ -53,18 +60,15 @@
   background: #212529;
   box-shadow: 0em 0em 3em 0.1em rgba(0, 0, 0, 0.336);
   border-radius: 20px;
-  padding-top: 5%;
-  padding-bottom: 4%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .btn-registro,
 .btn-login {
   background: none;
-  display: block;
-  margin: 10px auto;
-  text-align: center;
   border: 2px solid #4caf50;
-  padding: 5px 30px;
+  padding: 3px 10px 3px;
   outline: none;
   color: white;
   border-radius: 24px;
@@ -76,12 +80,46 @@
   background: #4caf50;
 }
 
+.toast {
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+.toast-header {
+  background: #4caf50;
+  color: white;
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}
+hr {
+  margin: -10px 0px 7px;
+}
+
 @media (max-height: 900px) {
   .registro-page {
     height: 50%;
-    height: 100%;
     padding-top: 2%;
     padding-bottom: 2%;
+  }
+  .registro-page .password,
+  .registro-page .text {
+    font-size: 100%;
+  }
+  #src-file1 {
+    font-size: 100%;
+  }
+}
+@media (max-height: 700px) {
+  .registro-page {
+    height: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
   }
   .registro-page .password,
   .registro-page .text {
@@ -96,8 +134,49 @@
     height: 1100px;
   }
   .registro-page {
-    margin-top: 10px;
     padding-top: 5%;
     padding-bottom: 5%;
   }
+  .icon-notification{
+    font-size: 10vw;
+  }
+}
+
+@media (min-width: 1080px) {
+  .icon-notification{
+    font-size: 4vw;
+  }
+}
+
+/* offcanvas */
+.offcanvas {
+  background: #212529;
+  color: white;
+}
+.offcanvas .offcanvas-header {
+  font-size: 9vw;
+  margin: 0;
+  padding-left: 3%;
+  padding-bottom: 0;
+}
+.offcanvas .nav-item,
+.offcanvas .nav-link {
+  color: white;
+  display: flex;
+  justify-items: center;
+  font-size: 5vw;
+}
+.icon-menu {
+  font-size: 8vw;
+}
+
+.text-danger {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #f05545;
+  font-size: 11px;
 }

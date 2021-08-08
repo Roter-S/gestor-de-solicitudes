@@ -13,7 +13,7 @@
 </head>
 
 <body class="antialiased">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                 aria-controls="offcanvasExample">
@@ -22,30 +22,82 @@
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                    <p class="offcanvas-title" id="offcanvasExampleLabel">Bienvenido</p>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
+                <hr class="dropdown-divider">
                 <div class="offcanvas-body">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('login.index') }}">Login</a>
+                    @if (auth()->check())
+                        <li class="nav-item align-items-center mb-3">
+                            <span class="material-icons icon-menu">
+                                logout
+                            </span>
+                            <a class="nav-link" aria-current="page" href="{{ route('signout') }}">Cerrar
+                                Sesión</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register.index') }}">Registrar</a>
-                        </li>
+                        <hr class="dropdown-divider">
+                    @else
+                        <ul class="nav flex-column">
+                            <li class="nav-item align-items-center">
+                                <span class="material-icons icon-menu">
+                                    login
+                                </span>
+                                <a class="nav-link" aria-current="page" href="{{ route('login.index') }}">Login</a>
+                            </li>
+                            <hr class="dropdown-divider">
+                            <li class="nav-item align-items-center">
+                                <span class="material-icons icon-menu">
+                                    app_registration
+                                </span>
+                                <a class="nav-link" href="{{ route('register.index') }}">Registrar</a>
+                            </li>
+                            <hr class="dropdown-divider">
+                    @endif
                     </ul>
                 </div>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('login.index') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register.index') }}">Registrar</a>
-                    </li>
-                </form>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    @if (auth()->check())
+                        <div class="container">
+                            <div class="d-flex justify-content-end">
+                                <div class="dropdown">
+                                    <div class="nav-link text-white m-0 dropdown-toggle" type="button"
+                                        id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ auth()->user()->firstName }} {{ auth()->user()->firstLastName }}
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-dark m-0 p-1" aria-labelledby="dropdownMenuButton2">
+                                        <li class="d-flex align-items-center">
+                                            <span class="material-icons">
+                                                logout
+                                            </span>
+                                            <a class="dropdown-item" aria-current="page"
+                                                href="{{ route('signout') }}">Cerrar
+                                                Sesión</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register.index') }}">Registrar</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <p class="nav-item m-0">
+                                <a class="nav-link text-white" aria-current="page"
+                                    href="{{ route('login.index') }}">Iniciar
+                                    Sesión</a>
+                            </p>
+                        </form>
+                    @endif
+                </div>
             </div>
         </div>
     </nav>
