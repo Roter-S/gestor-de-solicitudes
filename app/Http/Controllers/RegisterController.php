@@ -35,6 +35,7 @@ class RegisterController extends Controller
             [   //editando campos
                 'password' => bcrypt($passwordRnd), //encriptando contraseña
                 'role_id' => 3,
+                'requestStatuses_id' => 3,
                 'photo' => $namePhoto,
             ] + $request->all() //llamando todo el formulario
         );
@@ -46,7 +47,6 @@ class RegisterController extends Controller
         
         $this->sendMail($userData);
         $user->save(); //guardando formualrio
-        auth()->login($user);
         return redirect()->to('/login')->with('status', 'Busque dentro de su correo electronico el usuario y contraseña para inciar sesión.'); //redirrigiendo si se guardo con exito
     }
     //funcion para enviar email

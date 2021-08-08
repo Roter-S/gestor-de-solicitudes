@@ -13,10 +13,9 @@ class CreateRequestStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('request_statuses', function (Blueprint $table) {
+        Schema::create('requestStatuses', function (Blueprint $table) {
             $table->id();
             $table->string('status');
-            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateRequestStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('request_statuses');
+        Schema::dropIfExists('requestStatuses');
     }
 }

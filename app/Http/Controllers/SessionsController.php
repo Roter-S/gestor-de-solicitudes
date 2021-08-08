@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\DB;
+
 class SessionsController extends Controller
 {
     public function create()
@@ -23,20 +25,15 @@ class SessionsController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
 
-            return redirect()->intended('dashboard')
-                ->withSuccess('Has iniciado sesión correctamente.');
+            return redirect()->intended('estado-registro');
         }
 
         return redirect('login')->withSuccess('¡Lo siento! Ingresaste credenciales inválidas.');
     }
 
-    public function dashboard()
+    public function statusRegister()
     {
-        if (Auth::check()) {
-            return view('dashboard');
-        }
-
-        return redirect('login')->withSuccess('¡Opps! No tienes acceso a esta ruta');
+        return view('app.statusRegister'); //vista de estado del registro
     }
 
     public function signout()
@@ -44,6 +41,6 @@ class SessionsController extends Controller
         session()->flush();
         Auth::logout();
 
-        return Redirect('/');
+        return Redirect('login');
     }
 }

@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
-use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('app.home');
@@ -15,4 +14,5 @@ Route::post('registro', [RegisterController::class, 'store'])->name('register.st
 Route::get('login', [SessionsController::class, 'create'])->name('login.index');
 Route::post('submit-login', [SessionsController::class, 'postLogin'])->name('login.post');
 Route::get('signout', [SessionsController::class, 'signOut'])->name('signout');
-Route::get('dashboard', [SessionsController::class, 'dashboard']);
+
+Route::get('estado-registro', [SessionsController::class, 'statusRegister'])->middleware('authStatus');
