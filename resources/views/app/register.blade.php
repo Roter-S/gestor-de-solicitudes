@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-fade d-flex align-items-center justify-content-center text-center">
         <div class="container">
-            <div class="registro-page container col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+            <div class="registro-page bg-dark container col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
                 <p class="display-4 text-uppercase text-white">Registro</p>
                 <hr class="text-white">
                 <form class="row " method="POST" action="{{ route('register.store') }}"

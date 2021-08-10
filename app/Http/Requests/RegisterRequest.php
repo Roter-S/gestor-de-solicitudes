@@ -33,7 +33,7 @@ class RegisterRequest extends FormRequest
             'secondLastName' => 'alpha|required',
             'marriedLastName' => 'alpha|nullable',
             'birthDate' => "required|date|before:" . $before,
-            'dpi' => 'required|unique:users|alpha_num|min:13',
+            'dpi' => 'required|unique:users|alpha_num|min:13|max:13',
             'profession' => 'nullable',
             'yearsWorking' => 'nullable|alpha_num|gt:0',
             'photo' => 'required|mimes:jpg,png|dimensions:min_width=400,min_height=600',

@@ -19,7 +19,7 @@
                 aria-controls="offcanvasExample">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
                     <p class="offcanvas-title" id="offcanvasExampleLabel">Bienvenido</p>
@@ -41,9 +41,9 @@
                         <ul class="nav flex-column">
                             <li class="nav-item align-items-center">
                                 <span class="material-icons icon-menu">
-                                    login
+                                    home
                                 </span>
-                                <a class="nav-link" aria-current="page" href="{{ route('login.index') }}">Login</a>
+                                <a class="nav-link" href="{{ route('home.index') }}">Registrar</a>
                             </li>
                             <hr class="dropdown-divider">
                             <li class="nav-item align-items-center">
@@ -51,6 +51,13 @@
                                     app_registration
                                 </span>
                                 <a class="nav-link" href="{{ route('register.index') }}">Registrar</a>
+                            </li>
+                            <hr class="dropdown-divider">
+                            <li class="nav-item align-items-center">
+                                <span class="material-icons icon-menu">
+                                    login
+                                </span>
+                                <a class="nav-link" aria-current="page" href="{{ route('login.index') }}">Login</a>
                             </li>
                             <hr class="dropdown-divider">
                     @endif
@@ -67,7 +74,8 @@
                                         id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                                         {{ auth()->user()->firstName }} {{ auth()->user()->firstLastName }}
                                     </div>
-                                    <ul class="dropdown-menu dropdown-menu-dark m-0 p-1" aria-labelledby="dropdownMenuButton2">
+                                    <ul class="dropdown-menu dropdown-menu-dark m-0 p-1"
+                                        aria-labelledby="dropdownMenuButton2">
                                         <li class="d-flex align-items-center">
                                             <span class="material-icons">
                                                 logout
@@ -83,7 +91,7 @@
                     @else
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                                <a class="nav-link" aria-current="page" href="{{ route('home.index') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register.index') }}">Registrar</a>

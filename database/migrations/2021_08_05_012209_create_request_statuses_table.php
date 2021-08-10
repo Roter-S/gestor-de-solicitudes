@@ -13,9 +13,10 @@ class CreateRequestStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('requestStatuses', function (Blueprint $table) {
+        Schema::create('request_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->integer('status');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

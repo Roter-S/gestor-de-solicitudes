@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class RequestStatus extends Model
 {
-    public function users()
+    protected $fillable = [
+        'status',
+    ];
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
