@@ -28,8 +28,7 @@ class RegisterController extends Controller
 
         //sentencia para evaluar la carpeta del destino
         if ($request->file('photo')) {
-            $namePhoto = $request->dpi . '.' . $request->photo->extension(); //3063914570401.jpg
-            $request->file('photo')->store('img', 'public');
+            $namePhoto = $request->file('photo')->store('img', 'public');
         }
 
         $user =  User::create(

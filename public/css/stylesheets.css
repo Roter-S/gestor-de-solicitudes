@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 :root {
   --bg-red-primary: #b71c1c;
   --bg-red-dark: #7f0000;
@@ -20,6 +21,12 @@
   --bg-bluegray-primary: #757575;
   --bg-bluegray-dark: #313131;
   --bg-bluegray-light: #a7a7a7;
+
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 56px;
+}
+body{
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Formulario registrar y login */
@@ -144,9 +151,6 @@
   background: var(--bg-red-dark);
   color: white;
 }
-.btn-close {
-  font-size: 3vw;
-}
 
 .bg-diffuse {
   background: var(--bg-diffuse-black);
@@ -213,15 +217,24 @@ hr {
     font-size: 10vw;
   }
 }
-
 @media (min-width: 1080px) {
   .icon-notification {
     font-size: 4vw;
   }
 }
 
-/* offcanvas */
-.offcanvas {
+.text-danger {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: var(--bg-red-primary);
+  font-size: 11px;
+}
+
+/* .offcanvas {
   color: white;
   transition: 0.5s;
   width: 70%;
@@ -238,23 +251,45 @@ hr {
   display: flex;
   justify-items: center;
   font-size: 5vw;
-}
-.icon-menu {
-  font-size: 8vw;
+} */
+
+a {
+  text-decoration: none;
 }
 
-.text-danger {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: var(--bg-red-primary);
-  font-size: 11px;
+.sidebar-nav {
+  width: var(--offcanvas-width);
+  top: 56px;
+  height: calc(100% - var(--topNavbarHeight));
+  color: white;
+}
+@media (min-width: 992px) {
+  body{
+    overflow: auto !important;
+  }
+  .offcanvas-backdrop::before {
+    display: none !important;
+  }
+  .sidebar-nav {
+    transform: none;
+    visibility: visible;
+  }
+  main{
+    margin-left: var(--offcanvas-width);
+  }
+}
+@media (max-width: 767px) {
+  .icon-dashboard {
+    font-size: 20vw;
+  }
+}
+@media (min-width: 768px) {
+  .icon-dashboard {
+    font-size: 8vw;
+  }
 }
 
-/* estilos para vista admin */
+/* 
 #admin-body {
   overflow: hidden;
   font-weight: 300;
@@ -300,3 +335,4 @@ a {
     font-size: 8vw;
   }
 }
+ */

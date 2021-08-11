@@ -63,9 +63,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
-
+        $user= User::findOrFail($id);
+        return view('admin.users.editUser', compact('user'));
     }
 
     /**
@@ -75,9 +76,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update($id)
     {
-        //
+        $datosUser = request()->except(['_token','_method']);
+        User::where('id', '=', $id)->update($datosUser);
+
+        $numeration = 1; //numerar item de tabla
+        $users= User::get();
+        foreach ($users as $user) {
+        }
+        return view('admin.users.updateUser', compact('users', 'numeration'))->with('status','Registro actualizado');
     }
 
     /**
