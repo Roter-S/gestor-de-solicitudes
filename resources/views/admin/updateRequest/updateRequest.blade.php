@@ -4,7 +4,7 @@
 
 
 @if (Session::get('success'))
-    <div class="position-fixed bottom-0 end-0 p-3">
+    <div class="position-fixed bottom-0 end-0 p-3 " style="z-index:1">
         <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header ps-4">
                 <span class="material-icons icon-notification">

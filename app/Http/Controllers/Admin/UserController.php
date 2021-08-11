@@ -83,8 +83,6 @@ class UserController extends Controller
 
         $numeration = 1; //numerar item de tabla
         $users= User::get();
-        foreach ($users as $user) {
-        }
         return view('admin.users.updateUser', compact('users', 'numeration'))->with('status','Registro actualizado');
     }
 

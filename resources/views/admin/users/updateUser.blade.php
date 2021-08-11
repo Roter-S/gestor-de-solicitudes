@@ -24,7 +24,6 @@
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
-                        <th scope="col">Foto</th>
                         <th scope="col">DPI</th>
                         <th scope="col">Correo electrónico</th>
                         <th scope="col">Rol del usuario</th>
@@ -38,12 +37,25 @@
                             <th scope="row"> {{ $numeration++ }} </th>
                             <td>{{ $user->firstName }}</td>
                             <td>{{ $user->firstLastName }}</td>
-                            <td>
-                                <img class="border border-light border-1" style="width:7vw" src="{{ asset('storage'.'/'.$user->photo) }}" alt="">
-                            </td>
+                           {{--  <td>
+                                <img class="border border-light border-1" style="width:7vw"
+                                    src="{{ asset('storage' . '/' . $user->photo) }}" alt="">
+                            </td> --}}
                             <td>{{ $user->dpi }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->role_id }}</td>
+                            <td>
+                                @switch($user->role->typeRole)
+                                    @case('administrator')
+                                        Administrador
+                                    @break
+                                    @case('operator')
+                                        Operador
+                                    @break
+                                    @default
+                                        Solicitante
+                                @endswitch()
+
+                            </td>
                             <th>
                                 <form action="{{ route('user.edit', $user->id) }}">
                                     <button class="btn btn-green" type="submit">Editar</button>

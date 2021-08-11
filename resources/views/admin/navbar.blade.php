@@ -1,3 +1,12 @@
+<?php
+use App\Models\User;
+
+if (Session::has('user')) {
+    $user = User::where('email', Session::get('user'))->first();
+    $userRol = $user->role_id;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es-GT">
 
@@ -57,6 +66,7 @@
                         </a>
                         <hr class="dropdown-divider">
                     </li>
+
                     <li>
                         <a class="nav-link px-3 d-flex" href="{{ route('request-status.index') }}">
                             <span class="material-icons">
@@ -66,6 +76,7 @@
                         </a>
                         <hr class="dropdown-divider">
                     </li>
+                    @if($userRol == 1)
                     <li>
                         <a class="nav-link px-3 d-flex" href="{{ route('user.index') }}">
                             <span class="material-icons">
@@ -75,6 +86,8 @@
                         </a>
                         <hr class="dropdown-divider">
                     </li>
+                    @endif
+
                 </ul>
             </nav>
         </div>
