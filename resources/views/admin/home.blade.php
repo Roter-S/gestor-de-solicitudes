@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.navbar')
 @section('title', 'home')
 @section('content')
 <div class="content container mt-5">
@@ -20,12 +20,8 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">Usuarios</h5>
-                                            <p class="fs-3">5</p>
-                                            <p class="card-text"><small class="text-muted">Last updated
-                                                    3
-                                                    mins
-                                                    ago</small></p>
+                                            <h5 class="card-title fs-3">Usuarios</h5>
+                                            <p class="fs-2">5</p>
                                         </div>
                                     </div>
                                 </div>
@@ -41,12 +37,8 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title">Solicitudes</h5>
-                                            <p class="fs-3">5</p>
-                                            <p class="card-text"><small class="text-muted">Last updated
-                                                    3
-                                                    mins
-                                                    ago</small></p>
+                                            <h5 class="card-title fs-3">Solicitudes</h5>
+                                            <p class="fs-2">5</p>
                                         </div>
                                     </div>
                                 </div>

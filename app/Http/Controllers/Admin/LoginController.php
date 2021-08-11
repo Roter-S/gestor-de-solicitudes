@@ -18,8 +18,7 @@ class LoginController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        /* $passwordBcrypt = bcrypt($request->password);
-        dd($passwordBcrypt); */
+
         $user = User::where('email', $request->email)->whereIn('role_id', [1, 2])->first();
 
         if ($user && password_verify($request->password, $user->password)) { //validar si existe usuario

@@ -15,7 +15,7 @@ class CreateRequestStatusesTable extends Migration
     {
         Schema::create('request_statuses', function (Blueprint $table) {
             $table->id();
-            $table->integer('status');
+            $table->string('status');
             $table->foreignId('user_id');
             $table->timestamps();
         });

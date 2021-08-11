@@ -26,8 +26,8 @@ Route::prefix('admin')->group(function () {
     Route::get('signoutAdmin', [LoginController::class, 'signoutAdmin'])->name('signoutAdmin');
     //-------- Rutas admin ---------
     Route::middleware(['admin:1,2'])->group(function () {
-        Route::view('dashboard', 'admin.home')->name('admin.index');
+        Route::view('admin', 'admin.home')->name('admin.index');
         Route::resource('request-status', RequestController::class)->only(['index','update']);
     });
-    Route::resource('user', UserController::class)->middleware('admin:1');
+    Route::resource('user', UserController::class)->middleware('admin:1,0',)->only('index','destroy');
 });

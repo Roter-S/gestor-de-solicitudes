@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.navbar')
 @section('title', 'Solicitudes')
 @section('content')
 
@@ -15,7 +15,7 @@
             </div>
         </div>
     @endif
-    <table class="table text-center">
+    <table class="table text-center table-dark table-striped mt-3 table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>

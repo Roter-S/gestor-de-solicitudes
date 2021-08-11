@@ -130,6 +130,20 @@
   background: var(--bg-green-dark);
   color: white;
 }
+.btn-red {
+  background: var(--bg-red-primary);
+  padding: 3px 10px 3px;
+  color: white;
+  border: 2px solid var(--bg-red-dark);
+  border-radius: 24px;
+  outline: none;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.btn-red:hover {
+  background: var(--bg-red-dark);
+  color: white;
+}
 .btn-close {
   font-size: 3vw;
 }

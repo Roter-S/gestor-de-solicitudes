@@ -38,7 +38,7 @@
                     <span class="material-icons">
                         manage_accounts
                     </span>
-                    <a class="nav-a px-1" aria-current="page" href="#">Usuarios</a>
+                    <a class="nav-a px-1" aria-current="page" href=" {{route('user.index')}} ">Usuarios</a>
                 </div>
                 <hr class="dropdown-divider">
             </div>

@@ -35,7 +35,7 @@ class RegisterController extends Controller
         $user =  User::create(
             [   //editando campos
                 'password' => bcrypt($passwordRnd), //encriptando contraseña
-                'role_id' => 'solicitante',
+                'role_id' => '3',
                 'photo' => $namePhoto,
             ] + $request->all() //llamando todo el formulario
         );
