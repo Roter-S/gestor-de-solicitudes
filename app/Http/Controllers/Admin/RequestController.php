@@ -17,9 +17,7 @@ class RequestController extends Controller
     public function index()
     {
         $numeration = 1; //numerar item de tabla
-        $requests = RequestStatus::get();
-        foreach ($requests as $request) {
-        }
+        $requests = RequestStatus::paginate(10);
         return view('admin.updateRequest.updateRequest', compact('requests','numeration'));
     }
 
