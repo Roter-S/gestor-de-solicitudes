@@ -32,13 +32,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($requests as $request)
+                    @foreach ($requests as $key => $request)
                         <tr>
-                            <td>{{ $numeration++ }} </td>
-                            <td>{{ $request->user->firstName }}</td>
-                            <td>{{ $request->user->firstLastName }}</td>
-                            <td>{{ $request->user->dpi }}</td>
-                            <td>{{ $request->user->email }}</td>
+                            <td>{{ $request->id }} </td>
+                            <td>{{ $request->firstName }}</td>
+                            <td>{{ $request->firstLastName }}</td>
+                            <td>{{ $request->dpi }}</td>
+                            <td>{{ $request->email }}</td>
                             <form method="POST" action=" {{ route('request-status.update', $request) }} ">
                                 <td>
                                     <input type="hidden" name="id" value="{{ $request->id }}">

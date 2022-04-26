@@ -23,7 +23,7 @@ class RequestStatusFactory extends Factory
     {
         return [
             'status' => $this->faker->randomElement(['Aceptado','Pendiente','Rechazado']),
-            'user_id' => $this->faker->numberBetween(1, \App\Models\User::count()),
+            'user_id' => $this->faker->numberBetween(2, \App\Models\User::count()),
         ];
     }
 }

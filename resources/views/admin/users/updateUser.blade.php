@@ -34,7 +34,7 @@
                 <tbody>
                     <tr>
                         @foreach ($users as $user)
-                            <th scope="row"> {{ $numeration++ }} </th>
+                            <th scope="row"> {{ $user->id }} </th>
                             <td>{{ $user->firstName }}</td>
                             <td>{{ $user->firstLastName }}</td>
                            {{--  <td>
@@ -44,7 +44,7 @@
                             <td>{{ $user->dpi }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                @switch($user->role->typeRole)
+                                @switch($user->typeRole)
                                     @case('administrator')
                                         Administrador
                                     @break
@@ -57,17 +57,21 @@
 
                             </td>
                             <th>
+                                @if ($user->typeRole != 'administrator')
                                 <form action="{{ route('user.edit', $user->id) }}">
                                     <button class="btn btn-green" type="submit">Editar</button>
                                 </form>
+                                @endif
                             </th>
                             <th>
+                                @if ($user->typeRole != 'administrator')
                                 <form method="POST" action="{{ route('user.destroy', $user->id) }}">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-red"
                                         onclick="return confirm('¿Desea eliminar...?')">Eliminar</button>
                                 </form>
+                                @endif
                             </th>
                     </tr>
                     @endforeach

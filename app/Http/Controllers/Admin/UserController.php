@@ -24,9 +24,11 @@ class UserController extends Controller
 
     public function index()
     {
-        $numeration = 1; //numerar item de tabla
-        $users= User::paginate(10);
-        return view('admin.users.updateUser', compact('users', 'numeration'));
+        $users= User::select('users.id', 'users.firstName', 'users.firstLastName', 'users.photo', 'users.dpi', 'users.email', 'roles.typeRole')
+            ->join('roles', 'roles.id', '=', 'users.role_id' )
+            ->orderBy('users.id', 'Asc')
+            ->paginate(10);
+        return view('admin.users.updateUser', compact('users'));
     }
     public function create()
     {

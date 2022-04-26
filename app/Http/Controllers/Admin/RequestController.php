@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\RequestStatus;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 class RequestController extends Controller
@@ -16,9 +17,14 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $numeration = 1; //numerar item de tabla
-        $requests = RequestStatus::paginate(10);
-        return view('admin.updateRequest.updateRequest', compact('requests','numeration'));
+        $requests = RequestStatus::select('request_statuses.id', 'users.firstName', 'users.firstLastName', 'users.dpi', 'users.email', 'request_statuses.status')
+            ->join('users', 'users.id', '=', 'request_statuses.user_id')
+            ->join('roles', 'roles.id', '=', 'users.role_id' )
+            ->where('roles.typeRole', '!=', 'administrator')
+            ->orderBy('request_statuses.id', 'Asc')
+            ->paginate(10);
+
+        return view('admin.updateRequest.updateRequest', compact('requests'));
     }
 
     /**
