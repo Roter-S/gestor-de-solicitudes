@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
 use App\Models\RequestStatus;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
@@ -33,7 +34,7 @@ class RegisterController extends Controller
 
         $user =  User::create(
             [   //editando campos
-                'password' => bcrypt($passwordRnd), //encriptando contraseña
+                'password' => Hash::make($passwordRnd), //encriptando contraseña
                 'role_id' => '3',
                 'photo' => $namePhoto,
             ] + $request->all() //llamando todo el formulario

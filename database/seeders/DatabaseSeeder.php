@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\RequestStatus;
 use Illuminate\Database\Seeder;
 use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,14 +26,14 @@ class DatabaseSeeder extends Seeder
             'firstName' => 'Administrator',
             'firstLastName' => 'General',
             'email' => 'admin@admin.com',
-            'password' => '$2a$12$dH/TNC7zxWVOGUMcng.vpud5RhfXNOA/Nq/nDhPhacPOwU22.9QVi'
+            'password' => Hash::make('admin12345')
         ]);
         User::create([
             'role_id' => '2',
             'firstName' => 'Operador',
             'firstLastName' => 'General',
             'email' => 'operator@admin.com',
-            'password' => '$2a$12$dH/TNC7zxWVOGUMcng.vpud5RhfXNOA/Nq/nDhPhacPOwU22.9QVi'
+            'password' => Hash::make('admin12345')
         ]);
 
         User::factory()->count(20)->create();
