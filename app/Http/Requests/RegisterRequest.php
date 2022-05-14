@@ -36,7 +36,7 @@ class RegisterRequest extends FormRequest
             'dpi' => 'required|unique:users|alpha_num|min:13|max:13',
             'profession' => 'nullable',
             'yearsWorking' => 'nullable|alpha_num|gt:0',
-            'photo' => 'required|mimes:jpg,png|dimensions:min_width=400,min_height=600',
+            'photo' => 'required|mimes:jpg,png',//|dimensions:min_width=400,min_height=600',
             'salary' => 'required_with:yearsWorking',
             'email' => 'required',
         ];
