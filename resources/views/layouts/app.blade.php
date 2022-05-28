@@ -96,6 +96,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register.index') }}">Registrar</a>
                             </li>
+                            <li class="nav-item">
+                                <p class="nav-link">{{ \Request::ip() }}</p> 
+                            </li>
                         </ul>
                         <form class="d-flex">
                             <p class="nav-item m-0">
